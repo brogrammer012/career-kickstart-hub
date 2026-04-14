@@ -10,6 +10,9 @@ public class UserService {
     private UserRepository userRepository;
 
     public User save(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User cannot be null");
+        }
         return userRepository.save(user);
     }
 }
